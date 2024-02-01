@@ -222,11 +222,10 @@ local function goTo(x2, y2, z2 ,xd2, zd2)
             until y == y2
         end
     end
-    if xd ~= xd2 and zd ~= zd2 then
-        repeat
+    if xd ~= xd2 or zd ~= zd2 then
+        while xd ~= xd2 or zd ~= zd2 do
             turtle.turnRight()
-            sleep(1)
-        until xd == xd2 and zd == zd2
+        end
     end
 end
 
@@ -397,9 +396,6 @@ while not done do
     end
     alternate = 0
     goTo(0, y, 0, 1, 0)
-    repeat 
-        turnRight()
-    until xd == 1
 end
 
 print( "Returning to surface..." )

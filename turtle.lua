@@ -369,7 +369,7 @@ while not done do
             end
             digUpAndDown()
         end
-        if i ~= qSize-1 then
+        if i ~= qSize then
             repeat
                 turnRight() 
                 sleep(0.2)

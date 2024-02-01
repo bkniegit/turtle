@@ -369,7 +369,7 @@ while not done do
             end
             digUpAndDown()
         end
-        if i ~= 16 then
+        if i ~= qSize-1 then
             repeat
                 turnRight() 
                 sleep(0.2)
@@ -397,6 +397,9 @@ while not done do
     end
     alternate = 0
     goTo(0, y, 0, 1, 0)
+    repeat 
+        turnRight()
+    until xd == 1
 end
 
 print( "Returning to surface..." )

@@ -225,7 +225,7 @@ local function goTo(x2, y2, z2 ,xd2, zd2)
     if xd ~= xd2 and zd ~= zd2 then
         repeat
             turtle.turnRight()
-            sleep(0.2)
+            sleep(1)
         until xd == xd2 and zd == zd2
     end
 end
@@ -369,17 +369,17 @@ while not done do
             end
             digUpAndDown()
         end
-        repeat
-             turnRight() 
-             sleep(0.2)
-        until zd == 1
-        digForward()
-        if not goForward() then
-            done = true
-            break
-        end
-        digUpAndDown()
         if i ~= 16 then
+            repeat
+                turnRight() 
+                sleep(0.2)
+            until zd == 1
+            digForward()
+            if not goForward() then
+                done = true
+                break
+            end
+            digUpAndDown()
             if alternate == 0 then
                 repeat
                     turnRight() 

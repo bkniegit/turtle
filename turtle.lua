@@ -372,6 +372,7 @@ while not done do
             done = true
             break
         end
+        digUpAndDown()
         if alternate == 0 then
             repeat
                 turnRight() 

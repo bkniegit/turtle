@@ -143,6 +143,7 @@ local function goTo(x2, y2, z2 ,xd2, zd2)
                 repeat
                     turtle.turnRight()
                     updateCoords("Right")
+                    sleep(0.2)
                 until zd == 1
             end
             repeat
@@ -157,6 +158,7 @@ local function goTo(x2, y2, z2 ,xd2, zd2)
                 repeat
                     turtle.turnRight()
                     updateCoords("Right")
+                    sleep(0.2)
                 until zd == -1
             end
             repeat
@@ -174,6 +176,7 @@ local function goTo(x2, y2, z2 ,xd2, zd2)
                 repeat
                     turtle.turnRight()
                     updateCoords("Right")
+                    sleep(0.2)
                 until xd == 1
             end
             repeat
@@ -188,6 +191,7 @@ local function goTo(x2, y2, z2 ,xd2, zd2)
                 repeat
                     turtle.turnRight()
                     updateCoords("Right")
+                    sleep(0.2)
                 until xd == -1
             end
             repeat
@@ -221,6 +225,7 @@ local function goTo(x2, y2, z2 ,xd2, zd2)
     if xd ~= xd2 and zd ~= zd2 then
         repeat
             turtle.turnRight()
+            sleep(0.2)
         until xd == xd2 and zd == zd2
     end
 end
@@ -241,7 +246,7 @@ local function returnSupplies()
     end
 
     print("Resuming mining...")
-	goTo(x2,y2,z2,xd2,zd2)
+	goTo(x2, y2, z2, xd2, zd2)
 end
 
 local function turnLeft()
@@ -366,23 +371,28 @@ while not done do
         end
         repeat
              turnRight() 
-        until xd == 0 and zd == 1
+             sleep(0.2)
+        until zd == 1
         digForward()
         if not goForward() then
             done = true
             break
         end
         digUpAndDown()
-        if alternate == 0 then
-            repeat
-                turnRight() 
-           until xd == -1 and zd == 0
-           alternate = 1
-        elseif alternate == 1 then
-            repeat
-                turnRight() 
-           until xd == 1 and zd == 0
-           alternate = 0
+        if i ~= 16 then
+            if alternate == 0 then
+                repeat
+                    turnRight() 
+                    sleep(0.2)
+               until xd == -1
+               alternate = 1
+            elseif alternate == 1 then
+                repeat
+                    turnRight()
+                    sleep(0.2)
+               until xd == 1
+               alternate = 0
+            end
         end
     end
     alternate = 0

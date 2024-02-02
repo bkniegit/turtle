@@ -136,6 +136,16 @@ local function updateCoords(dir)
     end
 end
 
+local function turnLeft()
+    turtle.turnLeft()
+    updateCoords("Left")
+end
+
+local function turnRight()
+    turtle.turnRight()
+    updateCoords("Right")
+end
+
 local function goTo(x2, y2, z2 ,xd2, zd2)
     if z ~= z2 then
         if z < z2 then
@@ -224,7 +234,7 @@ local function goTo(x2, y2, z2 ,xd2, zd2)
     end
     if xd ~= xd2 or zd ~= zd2 then
         while xd ~= xd2 or zd ~= zd2 do
-            turtle.turnRight()
+            turnRight()
         end
     end
 end
@@ -246,16 +256,6 @@ local function returnSupplies()
 
     print("Resuming mining...")
 	goTo(x2, y2, z2, xd2, zd2)
-end
-
-local function turnLeft()
-    turtle.turnLeft()
-    updateCoords("Left")
-end
-
-local function turnRight()
-    turtle.turnRight()
-    updateCoords("Right")
 end
 
 local function goForward()

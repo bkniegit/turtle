@@ -348,14 +348,15 @@ turtle.select(1)
 local done = false
 local alternate = 0
 
-while not done do
-    for i=1, 2 do
-        digDown()
-        if not goDown() then
-            done = true
-            break
-        end
+for i=1, 2 do
+    digDown()
+    if not goDown() then
+        done = true
+        break
     end
+end
+
+while not done do
     for i=1, qSize do
         for i=1, qSize-1 do
             digForward()
@@ -390,6 +391,13 @@ while not done do
     end
     alternate = 0
     goTo(0, y, 0, 1, 0)
+    for i=1, 3 do
+        digDown()
+        if not goDown() then
+            done = true
+            break
+        end
+    end
 end
 
 print( "Returning to surface..." )

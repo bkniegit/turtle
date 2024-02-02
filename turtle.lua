@@ -153,7 +153,6 @@ local function goTo(x2, y2, z2 ,xd2, zd2)
                 repeat
                     turtle.turnRight()
                     updateCoords("Right")
-                    sleep(0.2)
                 until zd == 1
             end
             repeat
@@ -168,7 +167,6 @@ local function goTo(x2, y2, z2 ,xd2, zd2)
                 repeat
                     turtle.turnRight()
                     updateCoords("Right")
-                    sleep(0.2)
                 until zd == -1
             end
             repeat
@@ -186,7 +184,6 @@ local function goTo(x2, y2, z2 ,xd2, zd2)
                 repeat
                     turtle.turnRight()
                     updateCoords("Right")
-                    sleep(0.2)
                 until xd == 1
             end
             repeat
@@ -201,7 +198,6 @@ local function goTo(x2, y2, z2 ,xd2, zd2)
                 repeat
                     turtle.turnRight()
                     updateCoords("Right")
-                    sleep(0.2)
                 until xd == -1
             end
             repeat
@@ -233,9 +229,10 @@ local function goTo(x2, y2, z2 ,xd2, zd2)
         end
     end
     if xd ~= xd2 or zd ~= zd2 then
-        while xd ~= xd2 or zd ~= zd2 do
-            turnRight()
-        end
+        repeat
+            turtle.turnRight()
+            updateCoords("Right")
+        until xd == xd2 and zd == zd2
     end
 end
 
@@ -371,7 +368,6 @@ while not done do
         if i ~= qSize then
             repeat
                 turnRight() 
-                sleep(0.2)
             until zd == 1
             digForward()
             if not goForward() then
@@ -382,13 +378,11 @@ while not done do
             if alternate == 0 then
                 repeat
                     turnRight() 
-                    sleep(0.2)
                until xd == -1
                alternate = 1
             elseif alternate == 1 then
                 repeat
                     turnRight()
-                    sleep(0.2)
                until xd == 1
                alternate = 0
             end
